@@ -22,8 +22,6 @@ obs = np.arange(1, len(dataset) + 1, 1)
 
 # TAKING DIFFERENT INDICATORS FOR PREDICTION
 OHLC_avg = dataset.mean(axis = 1)
-HLC_avg = dataset[['High', 'Low', 'Close']].mean(axis = 1)
-close_val = dataset[['Close']]
 
 # PLOTTING ALL INDICATORS IN ONE PLOT
 plt.plot(obs, OHLC_avg, 'r', label = 'OHLC avg')
@@ -57,6 +55,7 @@ model.add(LSTM(32, input_shape=(1, step_size), return_sequences = True))
 model.add(LSTM(16))
 model.add(Dense(1))
 model.add(Activation('linear'))
+print(model.summary())
 
 # MODEL COMPILING AND TRAINING
 model.compile(loss='mean_squared_error', optimizer='adagrad') # Try SGD, adam, adagrad and compare!!!
