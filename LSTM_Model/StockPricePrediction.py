@@ -22,7 +22,8 @@ obs = np.arange(1, len(dataset) + 1, 1)
 
 # TAKING DIFFERENT INDICATORS FOR PREDICTION
 OHLC_avg = dataset.mean(axis = 1)
-
+HLC_avg = dataset[['High', 'Low', 'Close']].mean(axis = 1)	
+close_val = dataset[['Close']]
 # PLOTTING ALL INDICATORS IN ONE PLOT
 plt.plot(obs, OHLC_avg, 'r', label = 'OHLC avg')
 plt.plot(obs, HLC_avg, 'b', label = 'HLC avg')
