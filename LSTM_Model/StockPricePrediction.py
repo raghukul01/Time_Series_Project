@@ -15,7 +15,7 @@ np.random.seed(7)
 
 # IMPORTING DATASET 
 dataset = pd.read_csv('../Data/apple_share_price.csv', usecols=[1,2,3,4])
-dataset = dataset.reindex(index = dataset.index[::-1])
+# dataset = dataset.reindex(index = dataset.index[::-1])
 
 # CREATING OWN INDEX FOR FLEXIBILITY
 obs = np.arange(1, len(dataset) + 1, 1)
@@ -98,7 +98,7 @@ OHLC_avg = scaler.inverse_transform(OHLC_avg)
 plt.plot(OHLC_avg, 'g', label = 'original dataset')
 plt.plot(trainPredictPlot, 'r', label = 'training set')
 plt.plot(testPredictPlot, 'b', label = 'predicted stock price/test set')
-plt.legend(loc = 'upper right')
+plt.legend(loc = 'upper left')
 plt.xlabel('Time in Days')
 plt.ylabel('OHLC Value of Apple Stocks')
 plt.show()
